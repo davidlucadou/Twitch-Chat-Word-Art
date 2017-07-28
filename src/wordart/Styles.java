@@ -1,4 +1,4 @@
-
+package wordart;
 
 public enum Styles {
 	One ("Thick, wavy blue text with drop shadow", 95, 209),//265),
