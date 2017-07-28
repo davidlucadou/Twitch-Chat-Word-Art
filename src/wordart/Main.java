@@ -171,7 +171,7 @@ public class Main {
 		if (prevMsg.equalsIgnoreCase("")) {
 			return;
 		} else {
-			r.mouseMove(639, 282);
+			r.mouseMove(APPROX_CENTER_X, APPROX_CENTER_Y);
 			r.mousePress(InputEvent.BUTTON1_MASK);
 			r.mouseRelease(InputEvent.BUTTON1_MASK);
 			r.keyPress(KeyEvent.VK_DELETE);
