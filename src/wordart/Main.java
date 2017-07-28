@@ -49,10 +49,17 @@ public class Main {
 						&& prevMsg.startsWith(IRC_MESSAGE_INDICATOR)
 						&& !(curMsg.equals(SENTINEL_VALUE))) {
 					
+				} else if (prevMsg.equals(curMsg)) {
+					System.out.println("prevMsg is the same as curMsg, not printing out");
+				} else if (!(prevMsg.startsWith(IRC_MESSAGE_INDICATOR))) {
+					System.out.println("curMsg does not start with the IRC message indicator, not printing out");
 				} else if (curMsg.equals(SENTINEL_VALUE)) {
+					System.out.println("curMsg stars with the sentinel value, exiting");
 					exited = true;
 				} else {
-					System.out.println("prevMsg is the same as curMsg, not printing out");
+					System.out.println("curMsg is not being printed for an unknown reason. Debugging info:"
+							+ "\ncurMsg=" + curMsg
+							+ "\nprevMsg=" + prevMsg);
 				}
 			} catch (FileNotFoundException e) {
 				System.out.println("Unable to read from " + path);
@@ -73,6 +80,7 @@ public class Main {
 					System.out.println("Thread.sleep(1000) interrupted!");
 					e.printStackTrace();
 				}
+				printedCurMsg = false;
 			} else {
 				try {
 					Thread.sleep(100);
