@@ -205,7 +205,7 @@ public class Main {
 			int[] xVals = {640, 650, 655, 658, 660};
 			for (int x = 640; x < 680; x++) {
 				for (int y = 240; y < 300; y+= 2) {
-					r.mouseMove(xVals[x], y);
+					r.mouseMove(x, y);
 					r.mousePress(InputEvent.BUTTON1_MASK);
 					r.mouseRelease(InputEvent.BUTTON1_MASK);
 					r.keyPress(KeyEvent.VK_DELETE);
