@@ -162,14 +162,14 @@ public class Main {
 					
 					r.keyPress(KeyEvent.VK_DELETE);
 					r.keyRelease(KeyEvent.VK_DELETE);
-					try {
+					/*try {
 						Thread.sleep(10);
 						// I put this in to help make sure I wasn't overloading my VM, but now I wonder
 						// if it actually does anything helpful.
 					} catch (InterruptedException e) {
 						System.out.println("Thread.sleep(10) interrupted!");
 						e.printStackTrace();
-					}
+					}*/
 				}
 			}
 		}
