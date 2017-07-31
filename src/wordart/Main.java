@@ -211,6 +211,8 @@ public class Main {
 				r.keyPress(KeyEvent.VK_DELETE);
 				r.keyRelease(KeyEvent.VK_DELETE);
 			}
+			
+			
 			/*
 			r.mouseMove(APPROX_CENTER_X, APPROX_CENTER_Y);
 			r.mousePress(InputEvent.BUTTON1_MASK);
