@@ -202,18 +202,12 @@ public class Main {
 		if (prevMsg.equalsIgnoreCase("")) {
 			return;
 		} else {
-			int[] xVals = {640, 650, 655, 658, 660};
-			for (int x = 640; x < 680; x += 2) {
+			for (int x = 620; x < 700; x += 2) {
 				for (int y = 240; y < 300; y += 2) {
 					r.mouseMove(x, y);
 					r.mousePress(InputEvent.BUTTON1_MASK);
 					r.mouseRelease(InputEvent.BUTTON1_MASK);
-					try {
-						Thread.sleep(5);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					
 					r.keyPress(KeyEvent.VK_DELETE);
 					r.keyRelease(KeyEvent.VK_DELETE);
 					try {
