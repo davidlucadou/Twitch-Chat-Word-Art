@@ -59,8 +59,9 @@ public class Main {
 			if (curMsg.startsWith(IRC_MESSAGE_INDICATOR)
 					&& !(curMsg.equals(prevMsg))
 					&& !(curMsg.equals(SENTINEL_VALUE))) {
-				Main.deletePrevMsg(prevMsg, curMsg);
+				Main.deletePrevMsg(prevMsg);
 				Styles wordArtStyle = Main.chooseStyle();
+				curMsg = curMsg.substring(0, MAX_LEN);
 				Main.makeArt(wordArtStyle, curMsg);
 				prevMsg = curMsg;
 				printedCurMsg = true;
@@ -150,7 +151,7 @@ public class Main {
 		return style;
 	}
 	
-	private static void deletePrevMsg(String prevMsg, String curMsg) {
+	private static void deletePrevMsg(String prevMsg) {
 		if (prevMsg.equalsIgnoreCase("")) {
 			return;
 		} else {
