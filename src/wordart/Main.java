@@ -61,7 +61,7 @@ public class Main {
 					&& !(curMsg.equals(SENTINEL_VALUE))) {
 				Main.deletePrevMsg(prevMsg);
 				Styles wordArtStyle = Main.chooseStyle();
-				Main.makeArt(wordArtStyle, curMsg.substring(0, MAX_LEN));
+				Main.makeArt(wordArtStyle, curMsg.substring(0, (curMsg.length() > MAX_LEN ? MAX_LEN : curMsg.length())));
 				prevMsg = curMsg;
 				printedCurMsg = true;
 				System.out.println("DEBUG: Printed message");
