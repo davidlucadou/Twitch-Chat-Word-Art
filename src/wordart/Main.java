@@ -19,8 +19,6 @@ public class Main {
 	private static final String IRC_MESSAGE_INDICATOR = "<"; // This is a value that is in front of all IRC user message,
 													// and will not be mistaken for server messages.
 													// Feel free to change this for your own IRC client.
-	private static final int APPROX_CENTER_X = 639;
-	private static final int APPROX_CENTER_Y = 282;
 	private static Robot r;
 	
 	public static void main(String[] args) {
@@ -205,7 +203,15 @@ public class Main {
 			return;
 		} else {
 			for (int y = 240; y < 300; y+= 2) {
-				r.mouseMove(APPROX_CENTER_X, y);
+				r.mouseMove(640, y);
+				r.mousePress(InputEvent.BUTTON1_MASK);
+				r.mouseRelease(InputEvent.BUTTON1_MASK);
+				r.keyPress(KeyEvent.VK_DELETE);
+				r.keyRelease(KeyEvent.VK_DELETE);
+			}
+			
+			for (int y = 240; y < 300; y+= 2) {
+				r.mouseMove(660, y);
 				r.mousePress(InputEvent.BUTTON1_MASK);
 				r.mouseRelease(InputEvent.BUTTON1_MASK);
 				r.keyPress(KeyEvent.VK_DELETE);
