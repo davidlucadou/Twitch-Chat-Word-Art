@@ -15,21 +15,22 @@ import wordart.Styles;
 
 public class Main {
 	
-	private static final int MAX_LEN = 25; // Feel free to change this to your liking, just keep in mind
-											// the text gets squished and deletion less reliable at higher
-											// character counts.
-											// Also, the max length on the website is 50 characters.
-	private static final String SENTINEL_VALUE = "<luna_moona> !stopWordArt"; // Feel free to change this to your liking.
+	private static final String IRC_CHANNEL = "#monotonetim";
 	private static final String IRC_MESSAGE_INDICATOR = "<"; // This is a value that is in front of all IRC user message,
-													// and will not be mistaken for server messages.
-													// Feel free to change this for your own IRC client.
+															// and will not be mistaken for server messages.
+															// Feel free to change this for your own IRC client.
+	private static final int MAX_LEN = 25; // Feel free to change this to your liking, just keep in mind
+										// the text gets squished and deletion less reliable at higher
+										// character counts.
+										// Also, the max length on the website is 50 characters.
+	private static final String SENTINEL_VALUE = "<luna_moona> !stopWordArt"; // Feel free to change this to your liking.
 	private static Robot r;
 	
 	public static void main(String[] args) {
 		boolean stopRunning = false;
 		boolean printedCurMsg = false;
 		BufferedReader br;
-		String curMsg, nextMsg, prevMsg, channel, path;
+		String curMsg, nextMsg, prevMsg, path;
 		
 		try {
 			r = new Robot();
@@ -49,10 +50,9 @@ public class Main {
 		curMsg = "";
 		nextMsg = "";
 		prevMsg = "";
-		channel = "#monotonetim";
 		
 		path = System.getenv("APPDATA");
-		path += "\\mIRC\\logs\\" + channel + ".log";
+		path += "\\mIRC\\logs\\" + IRC_CHANNEL + ".log";
 		while (!stopRunning) {
 			curMsg = Main.getLatestMsg(path);
 			
