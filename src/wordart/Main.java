@@ -57,8 +57,8 @@ public class Main {
 					 */
 				}
 				
-				if (prevMsg.startsWith(IRC_MESSAGE_INDICATOR)
-						&& !(prevMsg.equals(curMsg))
+				if (curMsg.startsWith(IRC_MESSAGE_INDICATOR)
+						&& !(curMsg.equals(prevMsg))
 						&& !(curMsg.equals(SENTINEL_VALUE))) {
 					Main.deletePrevMsg(prevMsg, curMsg);
 					Styles wordArtStyle = Main.chooseStyle();
@@ -78,7 +78,7 @@ public class Main {
 					 * the message would be printed despite being a duplicate because prevMsg
 					 * would be the info message.
 					 */
-				} else if (prevMsg.equals(curMsg)) {
+				} else if (curMsg.equals(prevMsg)) {
 					System.out.println("prevMsg is the same as curMsg, not printing out");
 				} else if (curMsg.equals(SENTINEL_VALUE)) {
 					System.out.println("curMsg is the sentinel value, exiting");
