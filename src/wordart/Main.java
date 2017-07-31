@@ -64,6 +64,7 @@ public class Main {
 					 * NullPointerExceptions.
 					 */
 				}
+				br.close(); // Close file handle
 				
 				if (curMsg.startsWith(IRC_MESSAGE_INDICATOR)
 						&& !(curMsg.equals(prevMsg))
