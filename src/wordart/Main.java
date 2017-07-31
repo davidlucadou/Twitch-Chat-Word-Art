@@ -224,6 +224,12 @@ public class Main {
 			r.mouseRelease(InputEvent.BUTTON1_MASK);
 			r.keyPress(KeyEvent.VK_DELETE);
 			r.keyRelease(KeyEvent.VK_DELETE);
+			
+			r.mouseMove(660, 266);
+			r.mousePress(InputEvent.BUTTON1_MASK);
+			r.mouseRelease(InputEvent.BUTTON1_MASK);
+			r.keyPress(KeyEvent.VK_DELETE);
+			r.keyRelease(KeyEvent.VK_DELETE);
 		}
 	}
 	
