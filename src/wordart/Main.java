@@ -80,6 +80,7 @@ public class Main {
 					 */
 				} else if (curMsg.equals(prevMsg)) {
 					System.out.println("prevMsg is the same as curMsg, not printing out");
+					System.out.println(prevMsg + "\n" + curMsg);
 				} else if (curMsg.equals(SENTINEL_VALUE)) {
 					System.out.println("curMsg is the sentinel value, exiting");
 					stopRunning = true;
