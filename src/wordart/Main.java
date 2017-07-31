@@ -53,8 +53,8 @@ public class Main {
 		path = System.getenv("APPDATA");
 		path += "\\mIRC\\logs\\" + channel + ".log";
 		while (!stopRunning) {
-			try {
-				br = new BufferedReader(new FileReader(path));
+			//try {
+				/*br = new BufferedReader(new FileReader(path));
 				System.out.println("Reading from " + path);
 				while (nextMsg != null) {
 					curMsg = nextMsg;
@@ -63,8 +63,11 @@ public class Main {
 					 * for the assignment statement to work, thus preventing
 					 * NullPointerExceptions.
 					 */
-				}
+				/*}
 				br.close(); // Close file handle
+				*/
+				
+				curMsg = Main.getLatestMsg(path);
 				
 				if (curMsg.startsWith(IRC_MESSAGE_INDICATOR)
 						&& !(curMsg.equals(prevMsg))
@@ -74,6 +77,7 @@ public class Main {
 					Main.makeArt(wordArtStyle, curMsg);
 					prevMsg = curMsg;
 					printedCurMsg = true;
+					System.out.println("DEBUG: Printed message");
 				} else if (!(curMsg.startsWith(IRC_MESSAGE_INDICATOR))) {
 					System.out.println("curMsg does not start with the IRC message indicator, not printing out");
 					//prevMsg = curMsg;
@@ -98,13 +102,13 @@ public class Main {
 							+ "\ncurMsg=" + curMsg
 							+ "\nprevMsg=" + prevMsg);
 				}
-			} catch (FileNotFoundException e) {
+			/*} catch (FileNotFoundException e) {
 				System.out.println("Unable to read from \"" + path + "\"");
 				e.printStackTrace();
 			} catch (IOException e) {
 				System.out.println("IOException while reading from \"" + path + "\"");
 				e.printStackTrace();
-			}
+			}*/
 			
 			
 			
@@ -113,14 +117,16 @@ public class Main {
 			if (printedCurMsg) {
 				try {
 					Thread.sleep(2000);
+					System.out.println("DEBUG: Sleeping for 2000 milliseconds");
 				} catch (InterruptedException e) {
-					System.out.println("Thread.sleep(1000) interrupted!");
+					System.out.println("Thread.sleep(2000) interrupted!");
 					e.printStackTrace();
 				}
 				printedCurMsg = false;
 			} else {
 				try {
 					Thread.sleep(1000);
+					System.out.println("DEBUG: Sleeping for 1000 milliseconds");
 				} catch (InterruptedException e) {
 					System.out.println("Thread.sleep(1000) interrupted!");
 					e.printStackTrace();
@@ -155,17 +161,33 @@ public class Main {
 		// sleep 100 ms
 	}
 	
-	private static String getLatestMsg(String channel) {
+	private static String getLatestMsg(String path) {
+		BufferedReader br;
+		
+		String curMsg = "";
+		String nextMsg = "";
 		
 		
-		return "";
-	}
-	
-	private static String getLatestMsg(String channel, String path) {
-		
-		
-		
-		return "";
+		try {
+			br = new BufferedReader(new FileReader(path));
+			System.out.println("Reading from " + path);
+			while (nextMsg != null) {
+				curMsg = nextMsg;
+				nextMsg = br.readLine();
+				/* curMsg will never be null because nextMsg is always not null
+				 * for the assignment statement to work, thus preventing
+				 * NullPointerExceptions.
+				 */
+			}
+			br.close(); // Close file handle
+		} catch (FileNotFoundException e) {
+			System.out.println("Unable to read from \"" + path + "\"");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IOException while reading from \"" + path + "\"");
+			e.printStackTrace();
+		}
+		return curMsg;
 	}
 	
 	private static Styles chooseStyle() {
