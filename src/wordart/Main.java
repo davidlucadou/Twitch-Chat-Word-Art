@@ -202,14 +202,18 @@ public class Main {
 		if (prevMsg.equalsIgnoreCase("")) {
 			return;
 		} else {
-			for (int y = 240; y < 300; y+= 2) {
-				r.mouseMove(640, y);
-				r.mousePress(InputEvent.BUTTON1_MASK);
-				r.mouseRelease(InputEvent.BUTTON1_MASK);
-				r.keyPress(KeyEvent.VK_DELETE);
-				r.keyRelease(KeyEvent.VK_DELETE);
+			int[] xVals = {640, 650, 655, 660};
+			for (int x = 0; x < xVals.length; x++) {
+				for (int y = 240; y < 300; y+= 2) {
+					r.mouseMove(xVals[x], y);
+					r.mousePress(InputEvent.BUTTON1_MASK);
+					r.mouseRelease(InputEvent.BUTTON1_MASK);
+					r.keyPress(KeyEvent.VK_DELETE);
+					r.keyRelease(KeyEvent.VK_DELETE);
+				}
 			}
 			
+			/*
 			for (int y = 240; y < 300; y+= 2) {
 				r.mouseMove(660, y);
 				r.mousePress(InputEvent.BUTTON1_MASK);
@@ -219,7 +223,6 @@ public class Main {
 			}
 			
 			
-			/*
 			r.mouseMove(APPROX_CENTER_X, APPROX_CENTER_Y);
 			r.mousePress(InputEvent.BUTTON1_MASK);
 			r.mouseRelease(InputEvent.BUTTON1_MASK);
