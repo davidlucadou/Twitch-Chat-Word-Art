@@ -207,9 +207,33 @@ public class Main {
 				for (int y = 240; y < 300; y+= 2) {
 					r.mouseMove(x, y);
 					r.mousePress(InputEvent.BUTTON1_MASK);
+					try {
+						Thread.sleep(5);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					r.mouseRelease(InputEvent.BUTTON1_MASK);
+					try {
+						Thread.sleep(5);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					r.keyPress(KeyEvent.VK_DELETE);
+					try {
+						Thread.sleep(5);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					r.keyRelease(KeyEvent.VK_DELETE);
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 			
