@@ -61,8 +61,7 @@ public class Main {
 					&& !(curMsg.equals(SENTINEL_VALUE))) {
 				Main.deletePrevMsg(prevMsg);
 				Styles wordArtStyle = Main.chooseStyle();
-				curMsg = curMsg.substring(0, MAX_LEN);
-				Main.makeArt(wordArtStyle, curMsg);
+				Main.makeArt(wordArtStyle, curMsg.substring(0, MAX_LEN));
 				prevMsg = curMsg;
 				printedCurMsg = true;
 				System.out.println("DEBUG: Printed message");
@@ -93,10 +92,10 @@ public class Main {
 			
 			if (printedCurMsg) {
 				try {
-					Thread.sleep(2000);
-					//System.out.println("DEBUG: Sleeping for 2000 milliseconds");
+					Thread.sleep(3000);
+					//System.out.println("DEBUG: Sleeping for 3000 milliseconds");
 				} catch (InterruptedException e) {
-					System.out.println("Thread.sleep(2000) interrupted!");
+					System.out.println("Thread.sleep(3000) interrupted!");
 					e.printStackTrace();
 				}
 				printedCurMsg = false;
