@@ -36,6 +36,14 @@ public class Main {
 			e.printStackTrace();
 		}
 		
+		try {
+			Thread.sleep(5000);
+			// give time to tab out of console
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		//TODO: move file handling to separate method
 		curMsg = "";
 		nextMsg = "";
@@ -103,7 +111,7 @@ public class Main {
 			
 			if (printedCurMsg) {
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(2000);
 				} catch (InterruptedException e) {
 					System.out.println("Thread.sleep(1000) interrupted!");
 					e.printStackTrace();
@@ -111,7 +119,7 @@ public class Main {
 				printedCurMsg = false;
 			} else {
 				try {
-					Thread.sleep(100);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					System.out.println("Thread.sleep(1000) interrupted!");
 					e.printStackTrace();
